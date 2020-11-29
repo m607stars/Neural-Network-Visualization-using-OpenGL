@@ -25,7 +25,7 @@ void check(int value)
     glutTimerFunc(1000, check, 0);
 }
 
-void highlight_lines(float x, float y, float z, float live_transparency_line, float dead_transparency_line)
+void highlight_lines(float x, float y, float z, float live_transparency_line)
 {
     float a, b, c;
     for (a = 0; a <= 0.5; a = a + 0.1)
@@ -97,7 +97,7 @@ void highlight_lines(float x, float y, float z, float live_transparency_line, fl
     }
 }
 
-void displayTorus(void)
+void displaynetwork(void)
 {
     glMatrixMode(GL_MODELVIEW);
     // clear the drawing buffer.
@@ -254,15 +254,15 @@ void displayTorus(void)
         glEnd();
 
         //Highlighting the active neurons 
-        highlight_lines(0.3, 0.2, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.3, 0.3, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.3, 0.4, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.3, 0.5, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.3, 0.6, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.4, 0.5, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.2, 0.2, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.3, 0.2, 0.0, live_transparency_line, dead_transparency_line);
-        highlight_lines(0.4, 0.2, 0.0, live_transparency_line, dead_transparency_line);
+        highlight_lines(0.3, 0.2, 0.0, live_transparency_line);
+        highlight_lines(0.3, 0.3, 0.0, live_transparency_line);
+        highlight_lines(0.3, 0.4, 0.0, live_transparency_line);
+        highlight_lines(0.3, 0.5, 0.0, live_transparency_line);
+        highlight_lines(0.3, 0.6, 0.0, live_transparency_line);
+        highlight_lines(0.4, 0.5, 0.0, live_transparency_line);
+        highlight_lines(0.2, 0.2, 0.0, live_transparency_line);
+        highlight_lines(0.3, 0.2, 0.0, live_transparency_line);
+        highlight_lines(0.4, 0.2, 0.0, live_transparency_line);
     }
     //Flushing the whole output
     glFlush();
@@ -270,7 +270,7 @@ void displayTorus(void)
     glutSwapBuffers();
 }
 
-void reshapeTorus(int x, int y)
+void reshapenetwork(int x, int y)
 {
     if (y == 0 || x == 0) return;  //Nothing is visible then, so return
     //Set a new projection matrix
@@ -281,10 +281,10 @@ void reshapeTorus(int x, int y)
     glViewport(0, 0, x, y);  //Use the whole window for rendering
 }
 
-void idleTorus(void)
+void idlenetwork(void)
 {
     yRotated += 0.05;
-    displayTorus();
+    displaynetwork();
 }
 
 
@@ -298,18 +298,16 @@ int main(int argc, char** argv)
     glutInitWindowSize(1350, 950);
     glutInitWindowPosition(0, 0);
     // create the window 
-    glutCreateWindow("Torus Rotating Animation");
+    glutCreateWindow("network Rotating Animation");
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    xRotated = yRotated = zRotated = 30.0;
-    xRotated = 33;
     yRotated = 40;
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //Assign  the function used in events
-    glutDisplayFunc(displayTorus);
-    glutReshapeFunc(reshapeTorus);
-    glutIdleFunc(idleTorus);
+    glutDisplayFunc(displaynetwork);
+    glutReshapeFunc(reshapenetwork);
+    glutIdleFunc(idlenetwork);
     //Let start glut loop
     glutTimerFunc(100, check, 0);
     glutMainLoop();
