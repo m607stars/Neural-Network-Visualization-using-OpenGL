@@ -13,10 +13,10 @@ Neural Network is one of the basic building blocks of Deep Learning. It is the f
 
 -----------------------------------
 
-### 📷 Visualization
 
+<h2 align='center'> Visualization </h2>
 <p align="center">
-<img src ="./assets/nnvisualgif.gif" width = 500px>
+<img src ="./assets/neuralnetworkgif.gif" width = 500px>
 </p>
 
 -----------------------------------
