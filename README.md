@@ -1,6 +1,3 @@
-<p align="center"
-<img src ="./assets/website.gif" width = 500px>
-</p>
 
 <h1 align = 'center'> Neural Network Visualization
 </h1>
@@ -19,7 +16,7 @@ Neural Network is one of the basic building blocks of Deep Learning. It is the f
 ### 📷 Visualization
 
 <p align="center">
-<img src ="./assets/website.gif" width = 500px>
+<img src ="./assets/nnvisualgif.gif" width = 500px>
 </p>
 
 -----------------------------------
